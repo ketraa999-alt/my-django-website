@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from gymmanageih import views
+from main import views
 from .views import user_login_view
 from .views import user_register_view
 
