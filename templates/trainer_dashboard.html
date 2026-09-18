@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Dashboard - Iron Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="trainer_dashboard.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">🏋️</span>
+            <span class="brand-name">Iron Hub</span>
+        </div>
+
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="#dashboard" class="active">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#clients">
+                    <span class="nav-icon">👥</span>
+                    My Clients
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#schedule">
+                    <span class="nav-icon">📅</span>
+                    Schedule
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#workouts">
+                    <span class="nav-icon">📝</span>
+                    Workout Plans
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#earnings">
+                    <span class="nav-icon">💰</span>
+                    Earnings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#settings">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn">
+            <span class="nav-icon">🚪</span>
+            Logout
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="welcome-text">
+                <h1>Trainer Dashboard</h1>
+                <p class="date" id="current-date">Monday, January 1, 2024</p>
+            </div>
+
+            <div class="user-profile" style="cursor: pointer;">
+                <div class="avatar">T</div>
+                <div class="user-info">
+                    <span class="user-name">Mike Trainer</span>
+                    <span class="user-role">Senior Trainer</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-section active">
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(102, 126, 234, 0.1); color: #667eea;">👥</div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <span class="stat-label">Active Clients</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">💰</div>
+                    <div class="stat-info">
+                        <h3>$3,250</h3>
+                        <span class="stat-label">Monthly Earnings</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">📅</div>
+                    <div class="stat-info">
+                        <h3>28</h3>
+                        <span class="stat-label">Sessions This Week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">⭐</div>
+                    <div class="stat-info">
+                        <h3>4.9</h3>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Recent Clients -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Active Clients</h2>
+                            <a href="#clients" class="view-all">View All</a>
+                        </div>
+
+                        <div class="client-list">
+                            <div class="client-item">
+                                <div class="client-avatar">JD</div>
+                                <div class="client-info">
+                                    <span class="client-name">John Doe</span>
+                                    <span class="client-plan">Weight Loss Plan</span>
+                                </div>
+                                <span class="client-status status-active">Active</span>
+                            </div>
+
+                            <div class="client-item">
+                                <div class="client-avatar">AS</div>
+                                <div class="client-info">
+                                    <span class="client-name">Alice Smith</span>
+                                    <span class="client-plan">Muscle Gain</span>
+                                </div>
+                                <span class="client-status status-active">Active</span>
+                            </div>
+
+                            <div class="client-item">
+                                <div class="client-avatar">RJ</div>
+                                <div class="client-info">
+                                    <span class="client-name">Robert Johnson</span>
+                                    <span class="client-plan">Rehabilitation</span>
+                                </div>
+                                <span class="client-status status-pending">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Earnings Chart -->
+                    <!-- <div class="progress-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Revenue Analytics</h2>
+                        </div>
+                        <canvas id="earningsChart" width="800" height="300"></canvas>
+                    </div>
+                </div> -->
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Upcoming Schedule -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Today's Schedule</h2>
+                            <a href="#schedule" class="view-all">Full Calendar</a>
+                        </div>
+
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">09:00</span>
+                                    <span class="ampm">AM</span>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Personal Training</h4>
+                                    <div class="schedule-meta">John Doe • Gym Area</div>
+                                </div>
+                            </div>
+
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">11:30</span>
+                                    <span class="ampm">AM</span>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>HIIT Class</h4>
+                                    <div class="schedule-meta">Group of 15 • Studio A</div>
+                                </div>
+                            </div>
+
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">02:00</span>
+                                    <span class="ampm">PM</span>
+                                </div>
+                                <div class="schedule-info">
+                                    <h4>Consultation</h4>
+                                    <div class="schedule-meta">New Lead • Office</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="section-card" style="margin-top: 1.5rem;">
+                        <h2 class="section-title" style="margin-bottom: 1rem;">Quick Actions</h2>
+                        <div style="display: grid; gap: 10px;">
+                            <button class="workout-action" style="background: var(--text-dark);">+ Assign
+                                Workout</button>
+                            <button class="workout-action" style="background: var(--primary-color);">+ Schedule
+                                Session</button>
+                            <button class="workout-action" style="background: var(--secondary-color);">+ Message
+                                Client</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholders for other sections -->
+        <section id="clients" class="dashboard-section">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Client Management</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" placeholder="Search clients..."
+                            style="padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                        <button class="workout-action" style="padding: 8px 16px;">+ Add Client</button>
+                    </div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead style="background: #f8fafc;">
+                            <tr>
+                                <th style="padding: 1rem; color: var(--text-light); font-weight: 600;">Client Name</th>
+                                <th style="padding: 1rem; color: var(--text-light); font-weight: 600;">Current Plan</th>
+                                <th style="padding: 1rem; color: var(--text-light); font-weight: 600;">Progress</th>
+                                <th style="padding: 1rem; color: var(--text-light); font-weight: 600;">Next Session</th>
+                                <th style="padding: 1rem; color: var(--text-light); font-weight: 600;">Status</th>
+                                <th style="padding: 1rem; color: var(--text-light); font-weight: 600;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div class="client-avatar">JD</div>
+                                        <strong>John Doe</strong>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem;">Weight Loss Program</td>
+                                <td style="padding: 1rem;">
+                                    <div style="width: 100px; height: 6px; background: #e2e8f0; border-radius: 3px;">
+                                        <div
+                                            style="width: 75%; height: 100%; background: var(--success); border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                    <span style="font-size: 0.8rem; color: var(--text-light);">75% Goal Reached</span>
+                                </td>
+                                <td style="padding: 1rem;">Today, 09:00 AM</td>
+                                <td style="padding: 1rem;"><span class="client-status status-active">Active</span></td>
+                                <td style="padding: 1rem;">
+                                    <button
+                                        style="border: none; background: none; cursor: pointer; color: var(--primary-color);">Message</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div class="client-avatar">AS</div>
+                                        <strong>Alice Smith</strong>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem;">Muscle Gain (Hypertrophy)</td>
+                                <td style="padding: 1rem;">
+                                    <div style="width: 100px; height: 6px; background: #e2e8f0; border-radius: 3px;">
+                                        <div
+                                            style="width: 45%; height: 100%; background: var(--warning); border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                    <span style="font-size: 0.8rem; color: var(--text-light);">45% Goal Reached</span>
+                                </td>
+                                <td style="padding: 1rem;">Tomorrow, 10:00 AM</td>
+                                <td style="padding: 1rem;"><span class="client-status status-active">Active</span></td>
+                                <td style="padding: 1rem;">
+                                    <button
+                                        style="border: none; background: none; cursor: pointer; color: var(--primary-color);">Message</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div class="client-avatar">RJ</div>
+                                        <strong>Robert Johnson</strong>
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem;">Physiotherapy Rehab</td>
+                                <td style="padding: 1rem;">
+                                    <div style="width: 100px; height: 6px; background: #e2e8f0; border-radius: 3px;">
+                                        <div
+                                            style="width: 10%; height: 100%; background: var(--danger); border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                    <span style="font-size: 0.8rem; color: var(--text-light);">Starting</span>
+                                </td>
+                                <td style="padding: 1rem;">Jan 30, 02:00 PM</td>
+                                <td style="padding: 1rem;"><span class="client-status status-pending">Pending</span>
+                                </td>
+                                <td style="padding: 1rem;">
+                                    <button
+                                        style="border: none; background: none; cursor: pointer; color: var(--primary-color);">Approve</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule" class="dashboard-section">
+            <div class="content-grid">
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Weekly Calendar</h2>
+                        <button class="workout-action">+ New Appointment</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center;">
+                        <div style="font-weight: 600; padding: 10px; background: #f1f5f9; border-radius: 8px;">Mon</div>
+                        <div style="font-weight: 600; padding: 10px; background: #f1f5f9; border-radius: 8px;">Tue</div>
+                        <div style="font-weight: 600; padding: 10px; background: #f1f5f9; border-radius: 8px;">Wed</div>
+                        <div style="font-weight: 600; padding: 10px; background: #f1f5f9; border-radius: 8px;">Thu</div>
+                        <div style="font-weight: 600; padding: 10px; background: #f1f5f9; border-radius: 8px;">Fri</div>
+                        <div style="font-weight: 600; padding: 10px; background: #f1f5f9; border-radius: 8px;">Sat</div>
+                        <div style="font-weight: 600; padding: 10px; background: #f1f5f9; border-radius: 8px;">Sun</div>
+
+                        <!-- Mock Calendar Entries -->
+                        <div
+                            style="background: #e0f2fe; padding: 5px; border-radius: 4px; font-size: 0.8rem; color: #0369a1; text-align: left;">
+                            <strong>9:00 AM</strong><br>John Doe
+                        </div>
+                        <div
+                            style="background: #f0fdf4; padding: 5px; border-radius: 4px; font-size: 0.8rem; color: #15803d; text-align: left;">
+                            <strong>10:00 AM</strong><br>Group Class
+                        </div>
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 4px;"></div>
+                        <div
+                            style="background: #e0f2fe; padding: 5px; border-radius: 4px; font-size: 0.8rem; color: #0369a1; text-align: left;">
+                            <strong>2:00 PM</strong><br>Alice Smith
+                        </div>
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 4px;"></div>
+                        <div
+                            style="background: #fef3c7; padding: 5px; border-radius: 4px; font-size: 0.8rem; color: #b45309; text-align: left;">
+                            <strong>11:00 AM</strong><br>Workshop
+                        </div>
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 4px;"></div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1rem;">Upcoming Sessions</h2>
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div class="schedule-time">
+                                <span class="time">09:00</span>
+                                <span class="ampm">AM</span>
+                            </div>
+                            <div class="schedule-info">
+                                <h4>Personal Training</h4>
+                                <div class="schedule-meta">John Doe • Gym Area</div>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">
+                                <span class="time">10:00</span>
+                                <span class="ampm">AM</span>
+                            </div>
+                            <div class="schedule-info">
+                                <h4>Alice Smith</h4>
+                                <div class="schedule-meta">Assessment • Office</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workouts" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Workout Plans</h2>
+                <button class="workout-action">+ Create New Plan</button>
+            </div>
+
+            <div class="stats-grid">
+                <!-- Plan 1 -->
+                <div class="stat-card" style="display: block; text-align: left;">
+                    <div
+                        style="background: #f0fdf4; color: #16a34a; padding: 5px 10px; border-radius: 20px; display: inline-block; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px;">
+                        Beginner</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Total Body Tone</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Full body circuit for
+                        beginners.</p>
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <span style="font-size: 0.85rem; color: var(--text-dark);">⏱️ 45 min</span>
+                        <span style="font-size: 0.85rem; color: var(--text-dark);">🔥 300 kcal</span>
+                    </div>
+                    <button
+                        style="width: 100%; padding: 8px; border: 1px solid var(--primary-color); background: white; color: var(--primary-color); border-radius: 8px; cursor: pointer;">Edit
+                        Plan</button>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="stat-card" style="display: block; text-align: left;">
+                    <div
+                        style="background: #e0f2fe; color: #0284c7; padding: 5px 10px; border-radius: 20px; display: inline-block; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px;">
+                        Advanced</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Powerlifter Pro</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Focus on Squat, Bench,
+                        and Deadlift.</p>
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <span style="font-size: 0.85rem; color: var(--text-dark);">⏱️ 90 min</span>
+                        <span style="font-size: 0.85rem; color: var(--text-dark);">🔥 500 kcal</span>
+                    </div>
+                    <button
+                        style="width: 100%; padding: 8px; border: 1px solid var(--primary-color); background: white; color: var(--primary-color); border-radius: 8px; cursor: pointer;">Edit
+                        Plan</button>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="stat-card" style="display: block; text-align: left;">
+                    <div
+                        style="background: #fef3c7; color: #d97706; padding: 5px 10px; border-radius: 20px; display: inline-block; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px;">
+                        Intermediate</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">HIIT Shred</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">High intensity interval
+                        training.</p>
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <span style="font-size: 0.85rem; color: var(--text-dark);">⏱️ 30 min</span>
+                        <span style="font-size: 0.85rem; color: var(--text-dark);">🔥 350 kcal</span>
+                    </div>
+                    <button
+                        style="width: 100%; padding: 8px; border: 1px solid var(--primary-color); background: white; color: var(--primary-color); border-radius: 8px; cursor: pointer;">Edit
+                        Plan</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="earnings" class="dashboard-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>$2,450</h3>
+                        <span class="stat-label">Personal Training</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>$800</h3>
+                        <span class="stat-label">Group Classes</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>$0</h3>
+                        <span class="stat-label">Outstanding Invoices</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Transactions</h2>
+                    <button class="workout-action">View All Reports</button>
+                </div>
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead style="background: #f8fafc;">
+                        <tr>
+                            <th style="padding: 1rem; color: var(--text-light);">Date</th>
+                            <th style="padding: 1rem; color: var(--text-light);">Client / Item</th>
+                            <th style="padding: 1rem; color: var(--text-light);">Type</th>
+                            <th style="padding: 1rem; color: var(--text-light);">Amount</th>
+                            <th style="padding: 1rem; color: var(--text-light);">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #e2e8f0;">
+                            <td style="padding: 1rem;">Jan 28, 2024</td>
+                            <td style="padding: 1rem;">John Doe</td>
+                            <td style="padding: 1rem;">Monthly Package</td>
+                            <td style="padding: 1rem; font-weight: 600; color: var(--success);">+$400.00</td>
+                            <td style="padding: 1rem;">
+                                <div
+                                    style="background: #dcfce7; color: #16a34a; padding: 4px 10px; border-radius: 20px; display: inline-block; font-size: 0.8rem;">
+                                    Completed</div>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e2e8f0;">
+                            <td style="padding: 1rem;">Jan 25, 2024</td>
+                            <td style="padding: 1rem;">Alice Smith</td>
+                            <td style="padding: 1rem;">Single Session</td>
+                            <td style="padding: 1rem; font-weight: 600; color: var(--success);">+$50.00</td>
+                            <td style="padding: 1rem;">
+                                <div
+                                    style="background: #dcfce7; color: #16a34a; padding: 4px 10px; border-radius: 20px; display: inline-block; font-size: 0.8rem;">
+                                    Completed</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem;">Jan 22, 2024</td>
+                            <td style="padding: 1rem;">Gym Payout</td>
+                            <td style="padding: 1rem;">Salary</td>
+                            <td style="padding: 1rem; font-weight: 600; color: var(--success);">+$1,500.00</td>
+                            <td style="padding: 1rem;">
+                                <div
+                                    style="background: #dcfce7; color: #16a34a; padding: 4px 10px; border-radius: 20px; display: inline-block; font-size: 0.8rem;">
+                                    Completed</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="settings" class="dashboard-section">
+            <div class="content-grid">
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Profile Settings</h2>
+                    <form>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Display
+                                Name</label>
+                            <input type="text" value="Mike Trainer"
+                                style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Bio</label>
+                            <textarea rows="4"
+                                style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">Certified Personal Trainer with 5+ years of experience helping clients achieve their fitness goals.</textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Specializations</label>
+                            <input type="text" value="Weight Loss, Strength, HIIT"
+                                style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                        </div>
+                        <button class="workout-action">Save Profile</button>
+                    </form>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Availability & Rates</h2>
+                    <form>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Hourly
+                                Rate ($)</label>
+                            <input type="number" value="50"
+                                style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Availability
+                                Status</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                <option selected>Accepting New Clients</option>
+                                <option>Fully Booked</option>
+                                <option>On Leave</option>
+                            </select>
+                        </div>
+                        <button class="workout-action">Update Settings</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="trainer_dashboard.js"></script>
+</body>
+
+</html>

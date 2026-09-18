@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Iron Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin_dashboard.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">🏋️</span>
+            <span class="brand-name">Iron Hub</span>
+        </div>
+
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="#dashboard" class="active">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#users">
+                    <span class="nav-icon">👥</span>
+                    Users
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#trainers">
+                    <span class="nav-icon">💪</span>
+                    Trainers
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#financials">
+                    <span class="nav-icon">💰</span>
+                    Financials
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#reports">
+                    <span class="nav-icon">📑</span>
+                    Reports
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#settings">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn">
+            <span class="nav-icon">🚪</span>
+            Logout
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="welcome-text">
+                <h1>Admin Dashboard</h1>
+                <p class="date" id="current-date">Monday, January 1, 2024</p>
+            </div>
+
+            <div class="user-profile" style="cursor: pointer;">
+                <div class="avatar">A</div>
+                <div class="user-info">
+                    <span class="user-name">Super Admin</span>
+                    <span class="user-role">Administrator</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-section active">
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(102, 126, 234, 0.1); color: #667eea;">👥</div>
+                    <div class="stat-info">
+                        <h3>1,540</h3>
+                        <span class="stat-label">Total Users</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(118, 75, 162, 0.1); color: #764ba2;">💪</div>
+                    <div class="stat-info">
+                        <h3>45</h3>
+                        <span class="stat-label">Active Trainers</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">💵</div>
+                    <div class="stat-info">
+                        <h3>$45K</h3>
+                        <span class="stat-label">Monthly Revenue</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">⚠️</div>
+                    <div class="stat-info">
+                        <h3>3</h3>
+                        <span class="stat-label">Pending Approvals</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Revenue Chart -->
+                    <!-- <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Revenue Overview</h2>
+                            <select style="padding: 5px; border-radius: 5px; border: 1px solid #e2e8f0;">
+                                <option>Last 6 Months</option>
+                                <option>Last Year</option>
+                            </select>
+                        </div>
+                        <canvas id="revenueChart" width="800" height="300"></canvas>
+                    </div> -->
+
+                    <!-- Recent Users -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Recent Registrations</h2>
+                            <a href="#users" class="btn-small">View All</a>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sarah Connor</td>
+                                        <td>sarah@example.com</td>
+                                        <td>Jan 24, 2024</td>
+                                        <td><span class="status-badge status-active">Active</span></td>
+                                        <td>
+                                            <button class="action-btn edit-btn">✏️</button>
+                                            <button class="action-btn delete-btn">🗑️</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kyle Reese</td>
+                                        <td>kyle@example.com</td>
+                                        <td>Jan 23, 2024</td>
+                                        <td><span class="status-badge status-inactive">Inactive</span></td>
+                                        <td>
+                                            <button class="action-btn edit-btn">✏️</button>
+                                            <button class="action-btn delete-btn">🗑️</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Recent Activity -->
+                    <div class="section-card">
+                        <h2 class="section-title" style="margin-bottom: 1.5rem;">System Activity</h2>
+
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon">👤</div>
+                                <div class="activity-info">
+                                    <p><strong>New User</strong> registered: John Doe</p>
+                                    <span class="activity-time">2 mins ago</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon">💰</div>
+                                <div class="activity-info">
+                                    <p><strong>Payment Received</strong> from Alice Smith</p>
+                                    <span class="activity-time">15 mins ago</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon">💪</div>
+                                <div class="activity-info">
+                                    <p><strong>New Trainer</strong> application submitted</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Actions -->
+                    <div class="section-card">
+                        <h2 class="section-title" style="margin-bottom: 1.5rem;">Pending Actions</h2>
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1);">
+                                    ⚠️</div>
+                                <div class="activity-info">
+                                    <p>Trainer App: <strong>Mike Ross</strong></p>
+                                    <div style="margin-top: 5px;">
+                                        <button class="btn-small"
+                                            style="font-size: 0.8rem; padding: 4px 8px; background: #10b981;">Approve</button>
+                                        <button class="btn-small"
+                                            style="font-size: 0.8rem; padding: 4px 8px; background: #ef4444;">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholders for other sections -->
+        <section id="users" class="dashboard-section">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">User Database</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" placeholder="Search users (ID, Name, Email)..."
+                            style="padding: 8px 12px; border: 1px solid #e2e8f0; border-radius: 8px; width: 300px;">
+                        <button class="btn-small" style="background: var(--text-dark);">+ Add User</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Subscription</th>
+                                <th>Join Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#U-1024</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="avatar" style="width: 30px; height: 30px; font-size: 0.8rem;">JD
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 600;">John Doe</div>
+                                            <div style="font-size: 0.8rem; color: var(--text-light);">john@example.com
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Premium Plan</td>
+                                <td>Jan 15, 2024</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Block</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#U-1025</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="avatar" style="width: 30px; height: 30px; font-size: 0.8rem;">SC
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 600;">Sarah Connor</div>
+                                            <div style="font-size: 0.8rem; color: var(--text-light);">sarah@example.com
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Free Trial</td>
+                                <td>Jan 24, 2024</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Block</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#U-1023</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div class="avatar"
+                                            style="width: 30px; height: 30px; font-size: 0.8rem; background: #cbd5e1; color: #64748b;">
+                                            KR</div>
+                                        <div>
+                                            <div style="font-weight: 600;">Kyle Reese</div>
+                                            <div style="font-size: 0.8rem; color: var(--text-light);">kyle@example.com
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Standard Plan</td>
+                                <td>Jan 10, 2024</td>
+                                <td><span class="status-badge status-inactive">Inactive</span></td>
+                                <td>
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Unblock</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="trainers" class="dashboard-section">
+            <div class="content-grid">
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Active Trainers</h2>
+                        <button class="btn-small">Manage Roles</button>
+                    </div>
+                    <div class="activity-feed">
+                        <div class="activity-item"
+                            style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem;">
+                            <div class="activity-icon" style="background: #e0f2fe; color: #0284c7;">MT</div>
+                            <div class="activity-info" style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h4 style="margin: 0;">Mike Trainer</h4>
+                                    <span class="status-badge status-active">Active</span>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--text-light); margin: 5px 0;">Specialization:
+                                    Strength, HIIT</p>
+                                <div style="display: flex; gap: 10px; font-size: 0.85rem;">
+                                    <span>⭐ 4.9 Rating</span>
+                                    <span>👥 12 Clients</span>
+                                </div>
+                            </div>
+                            <button class="action-btn edit-btn" style="height: fit-content; align-self: center;">View
+                                Profile</button>
+                        </div>
+
+                        <div class="activity-item"
+                            style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem;">
+                            <div class="activity-icon" style="background: #fdf2f8; color: #db2777;">JS</div>
+                            <div class="activity-info" style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <h4 style="margin: 0;">Jessica Stark</h4>
+                                    <span class="status-badge status-active">Active</span>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--text-light); margin: 5px 0;">Specialization:
+                                    Yoga, Pilates</p>
+                                <div style="display: flex; gap: 10px; font-size: 0.85rem;">
+                                    <span>⭐ 4.8 Rating</span>
+                                    <span>👥 24 Clients</span>
+                                </div>
+                            </div>
+                            <button class="action-btn edit-btn" style="height: fit-content; align-self: center;">View
+                                Profile</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Trainer Applications</h2>
+                    </div>
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1);">⚠️
+                            </div>
+                            <div class="activity-info">
+                                <p><strong>Mike Ross</strong> applied for Trainer Role</p>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Exp: 4 Years • Cert: ACE
+                                    Certified</p>
+                                <div style="margin-top: 10px;">
+                                    <button class="btn-small"
+                                        style="font-size: 0.8rem; padding: 4px 12px; background: #10b981;">Approve</button>
+                                    <button class="btn-small"
+                                        style="font-size: 0.8rem; padding: 4px 12px; background: #ef4444;">Reject</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon" style="color: #f59e0b; background: rgba(245, 158, 11, 0.1);">⚠️
+                            </div>
+                            <div class="activity-info">
+                                <p><strong>Bruce Wayne</strong> applied for Trainer Role</p>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Exp: 10 Years • Cert: NASM</p>
+                                <div style="margin-top: 10px;">
+                                    <button class="btn-small"
+                                        style="font-size: 0.8rem; padding: 4px 12px; background: #10b981;">Approve</button>
+                                    <button class="btn-small"
+                                        style="font-size: 0.8rem; padding: 4px 12px; background: #ef4444;">Reject</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="financials" class="dashboard-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>$125,400</h3>
+                        <span class="stat-label">Total Revenue (YTD)</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>$12,500</h3>
+                        <span class="stat-label">Trainer Payouts</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>$4,200</h3>
+                        <span class="stat-label">Operational Costs</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>$108,700</h3>
+                        <span class="stat-label">Net Profit</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Transactions Ledger</h2>
+                    <button class="btn-small">Export CSV</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Date</th>
+                                <th>User/Entity</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#TRX-8854</td>
+                                <td>Today, 10:45 AM</td>
+                                <td>John Doe</td>
+                                <td>Subscription Renew</td>
+                                <td style="color: var(--success); font-weight: 600;">+$49.99</td>
+                                <td><span class="status-badge status-active">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-8853</td>
+                                <td>Today, 09:30 AM</td>
+                                <td>AWS Services</td>
+                                <td>Server Cost</td>
+                                <td style="color: var(--danger); font-weight: 600;">-$120.00</td>
+                                <td><span class="status-badge status-active">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-8852</td>
+                                <td>Yesterday</td>
+                                <td>Mike Trainer</td>
+                                <td>Payout Processed</td>
+                                <td style="color: var(--danger); font-weight: 600;">-$1,500.00</td>
+                                <td><span class="status-badge status-active">Success</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TRX-8851</td>
+                                <td>Yesterday</td>
+                                <td>Sarah Connor</td>
+                                <td>Class Booking</td>
+                                <td style="color: var(--success); font-weight: 600;">+$15.00</td>
+                                <td><span class="status-badge status-active">Success</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="reports" class="dashboard-section">
+            <div class="content-grid">
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Platform Analytics</h2>
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="margin-bottom: 10px;">User Growth</h4>
+                        <div style="height: 20px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 75%; height: 100%; background: var(--primary-color);"></div>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 5px; color: var(--text-light);">
+                            <span>Target: 2000 Users</span>
+                            <span>Current: 1540 (75%)</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="margin-bottom: 10px;">Server Load</h4>
+                        <div style="height: 20px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 35%; height: 100%; background: var(--success);"></div>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 5px; color: var(--text-light);">
+                            <span>Capacity: 100%</span>
+                            <span>Current: 35%</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="margin-bottom: 10px;">Storage Usage</h4>
+                        <div style="height: 20px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 85%; height: 100%; background: var(--warning);"></div>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-top: 5px; color: var(--text-light);">
+                            <span>Total: 1TB</span>
+                            <span>Used: 850GB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Generate Reports</h2>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            <div>
+                                <strong>Monthly Financial Summary</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Complete breakdown of
+                                    income/expenses</p>
+                            </div>
+                            <button class="btn-small">Download PDF</button>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            <div>
+                                <strong>User Activity Logs</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Login history and session data
+                                </p>
+                            </div>
+                            <button class="btn-small">Download CSV</button>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            <div>
+                                <strong>Trainer Performance</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Ratings and client retention
+                                    metrics</p>
+                            </div>
+                            <button class="btn-small">Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="settings" class="dashboard-section">
+            <div class="content-grid">
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">General Settings</h2>
+                    <form>
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Platform
+                                Name</label>
+                            <input type="text" value="Iron Hub"
+                                style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Support
+                                Email</label>
+                            <input type="email" value="support@ironhub.com"
+                                style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Maintenance
+                                Mode</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                <option>Off</option>
+                                <option>On (Admins only)</option>
+                                <option>Scheduled</option>
+                            </select>
+                        </div>
+                        <button class="btn-small">Save Changes</button>
+                    </form>
+                </div>
+
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem;">Admin Access Control</h2>
+                    <div style="margin-bottom: 2rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div>
+                                <strong>Allow New Admin Registrations</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">If off, only super admin can
+                                    add admins.</p>
+                            </div>
+                            <input type="checkbox" checked style="transform: scale(1.5);">
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div>
+                                <strong>Two-Factor Auth for Admins</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Force 2FA for all staff
+                                    accounts.</p>
+                            </div>
+                            <input type="checkbox" style="transform: scale(1.5);">
+                        </div>
+                    </div>
+
+                    <h2 class="section-title" style="margin-bottom: 1rem; color: var(--danger);">Danger Zone</h2>
+                    <button class="btn-small" style="background: var(--danger); width: 100%;">Flush System
+                        Cache</button>
+                    <button class="btn-small" style="background: var(--danger); width: 100%; margin-top: 10px;">Reset
+                        Demo Data</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="admin_dashboard.js"></script>
+</body>
+
+</html>

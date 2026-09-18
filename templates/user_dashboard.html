@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Iron Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="user_dashboard.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">🏋️</span>
+            <span class="brand-name">Iron Hub</span>
+        </div>
+
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="#dashboard" class="active">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#profile">
+                    <span class="nav-icon">👤</span>
+                    Profile
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#workouts">
+                    <span class="nav-icon">💪</span>
+                    My Workouts
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#diet">
+                    <span class="nav-icon">🥗</span>
+                    Diet Plan
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#progress">
+                    <span class="nav-icon">📈</span>
+                    Progress
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#settings">
+                    <span class="nav-icon">⚙️</span>
+                    Settings
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn">
+            <span class="nav-icon">🚪</span>
+            Logout
+        </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="welcome-text">
+                <h1>Welcome back, User!</h1>
+                <p class="date" id="current-date">Monday, January 1, 2024</p>
+            </div>
+
+            <div class="user-profile" style="cursor: pointer;">
+                <div class="avatar">U</div>
+                <div class="user-info">
+                    <span class="user-name">John Doe</span>
+                    <span class="user-role">Premium Member</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-section active">
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(102, 126, 234, 0.1); color: #667eea;">🔥</div>
+                    <div class="stat-info">
+                        <h3>1,250</h3>
+                        <span class="stat-label">Calories Burned</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">⏱️</div>
+                    <div class="stat-info">
+                        <h3>45m</h3>
+                        <span class="stat-label">Workout Time</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">⚖️</div>
+                    <div class="stat-info">
+                        <h3>75.5</h3>
+                        <span class="stat-label">Current Weight (kg)</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">👟</div>
+                    <div class="stat-info">
+                        <h3>5,432</h3>
+                        <span class="stat-label">Steps Today</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Today's Workout -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Today's Workout Plan</h2>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+
+                        <div class="workout-list">
+                            <div class="workout-item">
+                                <div class="workout-icon">🏃</div>
+                                <div class="workout-details">
+                                    <h4 class="workout-title">Warm Up: Treadmill</h4>
+                                    <div class="workout-meta">
+                                        <span>15 mins</span>
+                                        <span>•</span>
+                                        <span>Cardio</span>
+                                    </div>
+                                </div>
+                                <button class="workout-action">Start</button>
+                            </div>
+
+                            <div class="workout-item">
+                                <div class="workout-icon">🏋️</div>
+                                <div class="workout-details">
+                                    <h4 class="workout-title">Upper Body Strength</h4>
+                                    <div class="workout-meta">
+                                        <span>45 mins</span>
+                                        <span>•</span>
+                                        <span>Strength</span>
+                                    </div>
+                                </div>
+                                <button class="workout-action">Start</button>
+                            </div>
+
+                            <div class="workout-item">
+                                <div class="workout-icon">🧘</div>
+                                <div class="workout-details">
+                                    <h4 class="workout-title">Cool Down: Stretching</h4>
+                                    <div class="workout-meta">
+                                        <span>10 mins</span>
+                                        <span>•</span>
+                                        <span>Flexibility</span>
+                                    </div>
+                                </div>
+                                <button class="workout-action">Start</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Chart -->
+                    <!-- <div class="progress-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Weight Progress</h2>
+                            <select style="padding: 5px; border-radius: 5px; border: 1px solid #e2e8f0;">
+                                <option>Last 6 Months</option>
+                                <option>Last Year</option>
+                            </select>
+                        </div>
+                        <canvas id="progressChart" width="800" height="300"></canvas>
+                    </div>
+                </div> -->
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Upcoming Classes -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Upcoming Classes</h2>
+                        </div>
+
+                        <div class="class-list">
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time">10:00</span>
+                                    <span class="ampm">AM</span>
+                                </div>
+                                <div class="class-info">
+                                    <h4>Yoga Flow</h4>
+                                    <span class="class-trainer">with Sarah</span>
+                                </div>
+                            </div>
+
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time">04:00</span>
+                                    <span class="ampm">PM</span>
+                                </div>
+                                <div class="class-info">
+                                    <h4>HIIT Blast</h4>
+                                    <span class="class-trainer">with Mike</span>
+                                </div>
+                            </div>
+
+                            <div class="class-item">
+                                <div class="class-time">
+                                    <span class="time">06:30</span>
+                                    <span class="ampm">PM</span>
+                                </div>
+                                <div class="class-info">
+                                    <h4>Zumba Dance</h4>
+                                    <span class="class-trainer">with Elena</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Diet -->
+                    <div class="section-card" style="margin-top: 1.5rem;">
+                        <div class="section-header">
+                            <h2 class="section-title">Daily Diet</h2>
+                        </div>
+                        <div style="font-size: 0.9rem; color: #64748b;">
+                            <p style="margin-bottom: 10px;"><strong>Breakfast:</strong> Oatmeal & Berries</p>
+                            <p style="margin-bottom: 10px;"><strong>Lunch:</strong> Grilled Chicken Salad</p>
+                            <p><strong>Dinner:</strong> Salmon & Quinoa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections placeholders -->
+        <section id="profile" class="dashboard-section">
+            <div class="content-grid">
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Personal Information</h2>
+                        <button class="workout-action" onclick="alert('Profile Saved!')">Save Changes</button>
+                    </div>
+                    <form class="profile-form">
+                        <div class="form-row" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">First
+                                    Name</label>
+                                <input type="text" value="John"
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Last
+                                    Name</label>
+                                <input type="text" value="Doe"
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                        </div>
+                        <div class="form-row" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Email</label>
+                                <input type="email" value="john.doe@example.com"
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Phone</label>
+                                <input type="tel" value="+1 234 567 8900"
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                        </div>
+                        <div class="form-row" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Age</label>
+                                <input type="number" value="28"
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Gender</label>
+                                <select
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                    <option selected>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Physical Stats & Goals</h2>
+                    </div>
+                    <form class="goals-form">
+                        <div class="form-row" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Height
+                                    (cm)</label>
+                                <input type="number" value="180"
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Weight
+                                    (kg)</label>
+                                <input type="number" value="75.5"
+                                    style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Fitness
+                                Goal</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                <option>Weight Loss</option>
+                                <option selected>Muscle Gain</option>
+                                <option>Maintenance</option>
+                                <option>Endurance</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-dark); font-weight: 500;">Activity
+                                Level</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                <option>Sedentary</option>
+                                <option>Lightly Active</option>
+                                <option selected>Moderately Active</option>
+                                <option>Very Active</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="workouts" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">My Workout Library</h2>
+                <button class="workout-action">+ Custom Workout</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card" style="display: block; text-align: left;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <span
+                            style="background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Strength</span>
+                        <div class="stat-icon" style="font-size: 1.5rem; width: 40px; height: 40px;">🏋️</div>
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Full Body Power</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Compound movements
+                        focusing on major muscle groups.</p>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <span style="font-size: 0.85rem; color: var(--text-dark);"><strong>60</strong> min</span>
+                        <button class="workout-action" style="padding: 6px 12px; font-size: 0.9rem;">Start</button>
+                    </div>
+                </div>
+
+                <div class="stat-card" style="display: block; text-align: left;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <span
+                            style="background: #fef3c7; color: #d97706; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">HIIT</span>
+                        <div class="stat-icon" style="font-size: 1.5rem; width: 40px; height: 40px;">⚡</div>
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Cardio Blast</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">High intensity
+                        intervals to maximize calorie burn.</p>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <span style="font-size: 0.85rem; color: var(--text-dark);"><strong>30</strong> min</span>
+                        <button class="workout-action" style="padding: 6px 12px; font-size: 0.9rem;">Start</button>
+                    </div>
+                </div>
+
+                <div class="stat-card" style="display: block; text-align: left;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <span
+                            style="background: #dcfce7; color: #16a34a; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Flexibility</span>
+                        <div class="stat-icon" style="font-size: 1.5rem; width: 40px; height: 40px;">🧘</div>
+                    </div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Morning Yoga</h3>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">Gentle flow to wake up
+                        the body and mind.</p>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <span style="font-size: 0.85rem; color: var(--text-dark);"><strong>20</strong> min</span>
+                        <button class="workout-action" style="padding: 6px 12px; font-size: 0.9rem;">Start</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card" style="margin-top: 2rem;">
+                <h2 class="section-title">Workout History</h2>
+                <div class="workout-list">
+                    <div class="workout-item">
+                        <div class="workout-icon" style="background: #e0f2fe;">🏋️</div>
+                        <div class="workout-details">
+                            <h4 class="workout-title">Upper Body Strength</h4>
+                            <div class="workout-meta">Yesterday • 45 mins • 320 kcal</div>
+                        </div>
+                        <span style="color: var(--success); font-weight: 600;">Completed</span>
+                    </div>
+                    <div class="workout-item">
+                        <div class="workout-icon" style="background: #fef3c7;">⚡</div>
+                        <div class="workout-details">
+                            <h4 class="workout-title">Cardio Blast</h4>
+                            <div class="workout-meta">Jan 28 • 30 mins • 280 kcal</div>
+                        </div>
+                        <span style="color: var(--success); font-weight: 600;">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diet" class="dashboard-section">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Weekly Meal Plan</h2>
+                    <button class="workout-action">Generate New Plan</button>
+                </div>
+
+                <div class="table-container" style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: #f8fafc; text-align: left;">
+                                <th style="padding: 1rem; color: var(--text-light);">Day</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Breakfast</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Lunch</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Snack</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Dinner</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem; font-weight: 600;">Monday</td>
+                                <td style="padding: 1rem;">Oatmeal & Berries</td>
+                                <td style="padding: 1rem;">Grilled Chicken Salad</td>
+                                <td style="padding: 1rem;">Greek Yogurt</td>
+                                <td style="padding: 1rem;">Salmon & Quinoa</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem; font-weight: 600;">Tuesday</td>
+                                <td style="padding: 1rem;">Avocado Toast</td>
+                                <td style="padding: 1rem;">Turkey Wrap</td>
+                                <td style="padding: 1rem;">Almonds & Apple</td>
+                                <td style="padding: 1rem;">Lean Beef Stir-fry</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem; font-weight: 600;">Wednesday</td>
+                                <td style="padding: 1rem;">Protein Smoothie</td>
+                                <td style="padding: 1rem;">Quinoa Bowl</td>
+                                <td style="padding: 1rem;">Cottage Cheese</td>
+                                <td style="padding: 1rem;">Baked Cod & Veggies</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem; font-weight: 600;">Thursday</td>
+                                <td style="padding: 1rem;">Egg White Omelet</td>
+                                <td style="padding: 1rem;">Tuna Salad</td>
+                                <td style="padding: 1rem;">Rice Cake & PB</td>
+                                <td style="padding: 1rem;">Chicken Breast & Rice</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; font-weight: 600;">Friday</td>
+                                <td style="padding: 1rem;">Greek Yogurt Bowl</td>
+                                <td style="padding: 1rem;">Lentil Soup</td>
+                                <td style="padding: 1rem;">Protein Bar</td>
+                                <td style="padding: 1rem;">Homemade Tacos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stats-grid" style="margin-top: 2rem;">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>2,400</h3>
+                        <span class="stat-label">Daily Calorie Goal</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>180g</h3>
+                        <span class="stat-label">Protein Goal</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>2.5L</h3>
+                        <span class="stat-label">Water Intake Goal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="progress" class="dashboard-section">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">Measurements Log</h2>
+                    <button class="workout-action">Log New Entry</button>
+                </div>
+
+                <div class="table-container" style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: #f8fafc; text-align: left;">
+                                <th style="padding: 1rem; color: var(--text-light);">Date</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Weight (kg)</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Body Fat %</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Chest (cm)</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Waist (cm)</th>
+                                <th style="padding: 1rem; color: var(--text-light);">Hips (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem;">Jan 28, 2024</td>
+                                <td style="padding: 1rem;">75.5</td>
+                                <td style="padding: 1rem;">18.5%</td>
+                                <td style="padding: 1rem;">102</td>
+                                <td style="padding: 1rem;">82</td>
+                                <td style="padding: 1rem;">95</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0;">
+                                <td style="padding: 1rem;">Jan 21, 2024</td>
+                                <td style="padding: 1rem;">76.2</td>
+                                <td style="padding: 1rem;">19.0%</td>
+                                <td style="padding: 1rem;">101.5</td>
+                                <td style="padding: 1rem;">83</td>
+                                <td style="padding: 1rem;">96</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem;">Jan 14, 2024</td>
+                                <td style="padding: 1rem;">76.8</td>
+                                <td style="padding: 1rem;">19.5%</td>
+                                <td style="padding: 1rem;">101</td>
+                                <td style="padding: 1rem;">84</td>
+                                <td style="padding: 1rem;">96.5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- <div class="content-grid" style="margin-top: 2rem;"> -->
+                <!-- Reusing the chart logic but hypothetically a different one could go here -->
+                <!-- <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1rem;">BMI Calculator</h2>
+                    <div style="background: #f1f5f9; padding: 2rem; border-radius: 12px; text-align: center;">
+                        <h3 style="font-size: 3rem; color: var(--primary-color);">23.3</h3>
+                        <p style="color: var(--success); font-weight: 600;">Normal Weight</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 1rem;">Healthy BMI range:
+                            18.5 kg/m² - 25 kg/m²</p>
+                    </div>
+                </div> -->
+
+                <div class="section-card">
+                    <h2 class="section-title" style="margin-bottom: 1rem;">Streak</h2>
+                    <div
+                        style="background: #fefce8; padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid #fef08a;">
+                        <h3 style="font-size: 3rem; color: #ca8a04;">12</h3>
+                        <p style="color: #ca8a04; font-weight: 600;">Days Active Streak</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 1rem;">Keep it up! You're
+                            doing great!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="settings" class="dashboard-section">
+            <div class="section-card">
+                <h2 class="section-title" style="margin-bottom: 1.5rem;">Account Settings</h2>
+
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark);">Notifications</h3>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #e2e8f0;">
+                        <div>
+                            <p style="font-weight: 500;">Email Notifications</p>
+                            <span style="font-size: 0.85rem; color: var(--text-light);">Receive updates about your
+                                account</span>
+                        </div>
+                        <input type="checkbox" checked style="transform: scale(1.5);">
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #e2e8f0;">
+                        <div>
+                            <p style="font-weight: 500;">Workout Reminders</p>
+                            <span style="font-size: 0.85rem; color: var(--text-light);">Get reminded 30 mins before
+                                workout</span>
+                        </div>
+                        <input type="checkbox" checked style="transform: scale(1.5);">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-dark);">Security</h3>
+                    <button class="workout-action"
+                        style="background: white; border: 1px solid #e2e8f0; color: var(--text-dark);">Change
+                        Password</button>
+                    <button class="workout-action"
+                        style="background: white; border: 1px solid #e2e8f0; color: var(--text-dark);">Two-Factor
+                        Authentication</button>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--danger);">Danger Zone</h3>
+                    <button class="workout-action" style="background: var(--danger); color: white;">Delete
+                        Account</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="user_dashboard.js"></script>
+</body>
+
+</html>
